@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动按钮</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        .daohang>ul{
+            float: right;
+            list-style-type: none;
+            width: 25px;
+        }
+        .material-icons[name="delete"]{
+            color: red;
+        }
+        .hidden{
+            display:none;
+        }
+    </style>
+    <script>
+          $(document).ready(function(){
+              $("#ul1").hover(function(){
+                  $("#hide").html("<i class=\"material-icons\">do_not_disturb_on</i>")
+                      .css({"transform":"rotate(360deg)","transition":"transform 0.5s"});
+                  $(".hidden").slideDown("slow");
+              },function () {
+                  $("#hide").html("<i class=\"material-icons\">account_circle</i>")
+                  .css({"transform":"rotate(360deg)","transition":"transform 0.5s ease-out"});
+                  $(".hidden").slideUp("slow");
+              });
+          });
+    </script>
+</head>
+<body>
+<div class="main">
+    <div class="daohang">
+        <ul id="ul1">
+            <div class="icon" id="ftp">
+                <li><a href=""><i class="material-icons" name="show" id="hide">account_circle</i></a></li>
+            </div>
+            <div class="hidden">
+             <div class="icon">
+                <li><a href=""><i class="material-icons">accessibility</i></a></li>
+            </div>
+             <div class="icon">
+                <li><a href=""><i class="material-icons">add_alert</i></a></li>
+            </div>
+             <div class="icon">
+                <li><a href=""><i class="material-icons" name="delete">delete_forever</i></a></li>
+            </div>
+            </div>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

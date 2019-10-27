@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>模态框</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        #total{
+            width: 100%;
+            height: 100%;
+            position: fixed;/*利用固定定位的好处：页面还可以上下翻动，但是始终处于灰色背景下*/
+            background: rgba(0,0,0,.3);
+            display:none;
+        }
+        #modal-content {
+             width: 600px;
+             display:none;
+             position: relative;
+             border: 1px solid black;
+             border-radius:6px;
+            background-color: white;
+             background-clip: padding-box;
+             outline: 0;
+             margin: 0 auto; /*水平居中*/
+
+         }
+        .modal-title{
+            margin:0;
+            line-height: 1.4285;
+            font-size: 18px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .modal-body{
+            position: relative;
+            padding: 15px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .modal-footer{
+            padding: 15px;
+            text-align: right;
+            border-top: 1px solid #e5e5e5;
+        }
+        .btn{
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4285;
+            text-align: center;
+            border: 1px solid transparent;
+            border-radius: 6px;
+        }
+        .btn-default{
+            color: #333;
+            background: red;
+            border-color: #ccc;
+        }
+        .modal-footer .btn + .btn{
+            margin-bottom: 0;
+            margin-left: 5px;
+        }
+        .modal-footer .btn + .btn{
+            color: #fff;
+            background-color: #337ab7;
+             border-color: #2e6da4;
+        }
+        .btn>a{
+            text-decoration: none;
+                 }
+        .modal-header .close{
+            margin-top: -2px;
+        }
+        .button.close{
+            -webkit-appearance:none;
+            padding: 0;
+            cursor:pointer;
+            border: 0;
+        }
+        #error{
+            float:right;
+            font-size:21px;
+            font-weight:700;
+            line-height:1;
+            opacity:0.2;
+            text-shadow:0px 1px 0px #fff;
+            filter:alpha(opacity=20);
+        }
+        #Button>a{
+            text-decoration: none;
+            text-align: justify;
+            color: black;
+            font-family: 微软雅黑;
+        }
+    </style>
+    <script type="text/javascript">
+         window.onload=function () {
+             var Button = document.getElementById("Button");
+             var content = document.getElementById("modal-content");
+             var total = document.getElementById("total");
+             var error = document.getElementById("error");
+             Button.onclick=function () {
+                 content.style.display="block";
+                 total.style.display="block";
+             };
+             error.onclick=function () {
+                 content.style.display="none";
+                 total.style.display="none";
+             };
+             total.onclick=function(){
+                 content.style.display="none";
+                 total.style.display="none";
+             };
+         };
+    </script>
+</head>
+<body>
+<div id="total"></div>
+<div class="main">
+     <div class="text">
+         <p>中秋节也叫“仲秋节”，是在每年农历八月十五。中秋节是我国仅次于春节的第二大传统节日。
+　　在中秋节里人们可以吃月饼、赏月亮、放烟花……月饼有各种各样的口味：有豆沙的、哈密瓜的、草莓的……仲秋节还是一个团圆的日子，在这一天，人们会全家团聚在一起吃团圆饭，即使离家再远，也会给家里打电话问候。在这一天，人们还会在室外，或坐在院子里、或坐在草地上，边吃月饼边赏月。习俗介绍的很全面）
+　　今年中秋节我过得特别快乐。一大早我就起床了，洗漱完去吃早饭，不知道为什么，今天的早饭感觉特别香，所以我吃的又快又多。吃完早饭，我像兔子被追捕向洞口奔去一样冲向电话，打电话向姥姥姥爷问好，由于有很多话想说，所以电话打了很长时间，我非常想念他们。
+　　晚上我们全家一起吃月饼赏月亮，还看了中秋联欢晚会，中秋节的月亮格外圆，像一个洁白的圆盘升上了天空，夜晚的天空万里无云，月亮显得特别亮。是不是月亮也知道今天自己担任的是团圆大使，所以格外有精神？希望远方的姥姥姥爷也像月亮一样能精神饱满，健康长寿。时时有烟花飞上夜空，开放了瞬间的绚烂。我和姐姐一边数着颜色，一边拍着手欢呼。
+　　这真是一个快乐的仲秋。</p>
+     </div>
+     <div class="button">
+          <button id="Button"><a href="javascript:;">点击激活模态框</a></button>
+     </div>
+</div>
+<div class="void">
+    <div id="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="error" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">题目</h4>
+      </div>
+      <div class="modal-body">
+        <p>提交成功</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><a href="">Close</a></button>
+        <button type="button" class="btn btn-primary"><a href="">Save changes</a></button>
+      </div>
+    </div><!-- /.modal-content -->
+</div>
+</body>
+</html>
